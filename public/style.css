@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #35424a;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra los botones en la página */
+    margin-top: 20px;
+}
+
+.segment-button {
+    background-color: #35424a; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 15px 20px; /* Espaciado interno */
+    margin: 10px; /* Espaciado entre botones */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+}
+
+.segment-button:hover {
+    background-color: #6a757e; /* Color de fondo al pasar el mouse */
+}
+
+.image-container {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.bus-image {
+    width: 300px; /* Ancho de la imagen */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos para los formularios */
+.form-container {
+    display: none;
+    margin-top: 20px;
+}
+
+.form-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.form-container label {
+    display: inline-block;
+    width: 100px;
+}
+
+/* Modo oscuro */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode header, 
+.dark-mode footer {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.dark-mode .segment-button, 
+.dark-mode .dropdown-content a {
+    background-color: #444;
+    color: #ffffff;
+}
+
+.dark-mode .dropdown-content a:hover {
+    background-color: #555;
+}
+
+
+

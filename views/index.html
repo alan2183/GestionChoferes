@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Panubus</title>
+</head>
+<body>
+    <header>
+        <h1>Los mejores autobuses de Pánuco</h1>
+    </header>
+    <main>
+        <div class="buttons-container">
+            <button class="segment-button" onclick="showForm('inicio')">INICIO</button>
+
+            <div class="dropdown">
+                <button class="segment-button">CLIENTES</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showForm('registroCliente')">Registro nuevo cliente</a>
+                    <a href="#" onclick="showForm('infoCliente')">Información de cliente existente</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="segment-button">CHOFERES</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showForm('registroChofer')">Registro chofer</a>
+                    <a href="#" onclick="showForm('disposicionChofer')">Disposición</a>
+                    <a href="#" onclick="showForm('asignacionesChofer')">Asignaciones</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="segment-button">RUTAS</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showForm('nuevaRuta')">Creación nueva ruta</a>
+                    <a href="#" onclick="showForm('generarContrato')">Generación de contrato</a>
+                    <a href="#" onclick="showForm('editarRutas')">Visualización y edición de rutas</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="segment-button">COTIZACIONES</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showForm('generarCotizacion')">Generar cotización</a>
+                    <a href="#" onclick="showForm('verCotizaciones')">Ver cotizaciones anteriores</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="segment-button">CALENDARIO</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showForm('visualizacionCalendario')">Visualización diaria/semanal/mensual</a>
+                    <a href="#" onclick="showForm('administrarHorarios')">Administración de horarios</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="segment-button">INFORMES Y CONFIGURACIÓN</button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showForm('filtradoInformes')">Filtrado de informes</a>
+                    <a href="#" onclick="showForm('resumenRutas')">Resumen de rutas</a>
+                    <a href="#" onclick="showForm('ajustesSistema')">Ajustes de sistema</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedores de formularios -->
+        <div id="inicio" class="form-container">
+            <h2>Página de Inicio</h2>
+            <p>Información general, acceso a clientes y administradores.</p>
+        </div>
+
+        <!-- CLIENTES -->
+        <!-- Registro de nuevo cliente -->
+        <div id="registroCliente" class="form-container" style="display: none;">
+          <h2>Registro Nuevo Cliente</h2>
+          <form>
+              <label for="nombre">Nombre Completo:</label>
+              <input type="text" id="nombre" name="nombre" required>
+              
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" id="telefono" name="telefono" required>
+              
+              <label for="email">Correo Electrónico:</label>
+              <input type="email" id="email" name="email" required>
+              
+              <label for="direccion">Dirección:</label>
+              <input type="text" id="direccion" name="direccion" required>
+              
+              <button type="submit">Registrar Cliente</button>
+          </form>
+      </div>
+
+      <!-- Información de cliente existente (Buscar por correo electrónico) -->
+      <div id="infoCliente" class="form-container" style="display: none;">
+          <h2>Información de Cliente Existente</h2>
+          <form>
+              <label for="emailBuscar">Correo Electrónico:</label>
+              <input type="email" id="emailBuscar" name="emailBuscar" required>
+              
+              <button type="submit">Buscar Cliente</button>
+          </form>
+      </div>
+
+      <!-- Edición de cliente (Buscar por correo electrónico) -->
+      <div id="editarCliente" class="form-container" style="display: none;">
+          <h2>Editar Cliente</h2>
+          <form>
+              <label for="emailBuscar">Correo Electrónico:</label>
+              <input type="email" id="emailBuscar" name="emailBuscar" required>
+              
+              <label for="nombre">Nombre Completo:</label>
+              <input type="text" id="nombre" name="nombre">
+              
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" id="telefono" name="telefono">
+              
+              <label for="direccion">Dirección:</label>
+              <input type="text" id="direccion" name="direccion">
+              
+              <button type="submit">Guardar Cambios</button>
+          </form>
+      </div>
+
+      <!-- Eliminación de cliente (Buscar por correo electrónico) -->
+      <div id="eliminarCliente" class="form-container" style="display: none;">
+          <h2>Eliminar Cliente</h2>
+          <form>
+              <label for="emailBuscar">Correo Electrónico:</label>
+              <input type="email" id="emailBuscar" name="emailBuscar" required>
+              
+              <button type="submit">Eliminar Cliente</button>
+          </form>
+      </div>
+
+      <!-- Listar todos los clientes -->
+      <div id="listarClientes" class="form-container" style="display: none;">
+          <h2>Listado de Todos los Clientes</h2>
+          <button onclick="listarClientes()">Ver Clientes</button>
+          <div id="clientesListado"></div>
+      </div>
+
+        <!-- CHOFERES -->
+        <div id="registroChofer" class="form-container" style="display: none;">
+            <h2>Registro Chofer</h2>
+            <!-- Formulario de ejemplo para registro de chofer -->
+        </div>
+        <div id="disposicionChofer" class="form-container" style="display: none;">
+            <h2>Disposición del Chofer</h2>
+            <!-- Formulario de ejemplo para disposición del chofer -->
+        </div>
+        <div id="asignacionesChofer" class="form-container" style="display: none;">
+            <h2>Asignaciones del Chofer</h2>
+            <!-- Formulario de ejemplo para asignaciones del chofer -->
+        </div>
+
+        <!-- RUTAS -->
+        <div id="nuevaRuta" class="form-container" style="display: none;">
+            <h2>Creación Nueva Ruta</h2>
+            <!-- Formulario de ejemplo para creación de ruta -->
+        </div>
+        <div id="generarContrato" class="form-container" style="display: none;">
+            <h2>Generación de Contrato</h2>
+            <!-- Formulario de ejemplo para generación de contrato -->
+        </div>
+        <div id="editarRutas" class="form-container" style="display: none;">
+            <h2>Visualización y Edición de Rutas</h2>
+            <!-- Formulario de ejemplo para edición de rutas -->
+        </div>
+
+        <!-- COTIZACIONES -->
+        <div id="generarCotizacion" class="form-container" style="display: none;">
+            <h2>Generar Cotización</h2>
+            <!-- Formulario de ejemplo para generación de cotización -->
+        </div>
+        <div id="verCotizaciones" class="form-container" style="display: none;">
+            <h2>Ver Cotizaciones Anteriores</h2>
+            <!-- Formulario de ejemplo para ver cotizaciones anteriores -->
+        </div>
+
+        <!-- CALENDARIO -->
+        <div id="visualizacionCalendario" class="form-container" style="display: none;">
+            <h2>Visualización de Calendario</h2>
+            <!-- Formulario de ejemplo para visualización del calendario -->
+        </div>
+        <div id="administrarHorarios" class="form-container" style="display: none;">
+            <h2>Administración de Horarios</h2>
+            <!-- Formulario de ejemplo para administración de horarios -->
+        </div>
+
+        <!-- INFORMES Y CONFIGURACIÓN -->
+        <div id="filtradoInformes" class="form-container" style="display: none;">
+            <h2>Filtrado de Informes</h2>
+            <!-- Formulario de ejemplo para filtrado de informes -->
+        </div>
+        <div id="resumenRutas" class="form-container" style="display: none;">
+            <h2>Resumen de Rutas</h2>
+            <!-- Formulario de ejemplo para resumen de rutas -->
+        </div>
+        <div id="ajustesSistema" class="form-container" style="display: none;">
+            <h2>Ajustes de Sistema</h2>
+            <!-- Botón para activar/desactivar modo oscuro -->
+            <button onclick="toggleDarkMode()">Activar Modo Oscuro</button>
+        </div>
+
+        <!-- Imagen de autobús solo en la página de inicio -->
+        <div class="image-container">
+            <img src="autobus.webp" alt="Autobús" class="bus-image">
+        </div>
+    </main>
+    <footer>
+        <p>© Copyright</p>
+    </footer>
+    <script src="/script.js"></script>
+</body>
+</html>
